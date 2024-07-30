@@ -12,14 +12,14 @@ function App() {
   }, []);
 
   const fetchToDo = async () => {
-    const response = await fetch('http://localhost:5000/todos');
+    const response = await fetch('https://todo-app-jqa1.onrender.com/todos');
     const data = await response.json();
     console.log("data", data);
     setTodos(data.todos);
   };
 
   const addToDo = async () => {
-    const response = await fetch('http://localhost:5000/todos/add-todo', {
+    const response = await fetch('https://todo-app-jqa1.onrender.com/todos/add-todo', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,14 +33,14 @@ function App() {
   };
 
   const deleteTodo = async (id) => {
-    await fetch(`http://localhost:5000/todos/delete-todo/${id}`, {
+    await fetch(`https://todo-app-jqa1.onrender.com/todos/delete-todo/${id}`, {
       method: 'DELETE',
     });
     fetchToDo();
   };
 
   const updateTodo = async () => {
-    const response = await fetch(`http://localhost:5000/todos/update-todo/${currentTodo._id}`, {
+    const response = await fetch(`https://todo-app-jqa1.onrender.com/todos/update-todo/${currentTodo._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
